@@ -1,0 +1,184 @@
+{
+  "sacekimi": [
+    {
+      "id": "1",
+      "title": "DHI",
+      "content": "DHI_DESC",
+      "title_2": "",
+      "content_2": "DHI_DESC_2",
+      "image": "/images/sac-ekimi/sacekimi1.jpg",
+      "key": "dhi"
+    },
+    {
+      "id": "2",
+      "title": "FUE",
+      "content": "FUE_DESC",
+      "title_2": "",
+      "content_2": "",
+      "image": "/images/sac-ekimi/sacekimi2.jpg",
+      "key": "fue"
+    },
+    {
+      "id": "3",
+      "title": "ORGANIC_SAC_EKIMI",
+      "content": "ORGANIC_SAC_EKIMI_DESC",
+      "title_2": "ORGANIK_SAC_AVATANTAJ",
+      "content_2": "ORGANIC_SAC_EKIMI_DESC_2",
+      "image": "/images/sac-ekimi/sacekimi3.jpg",
+      "key": "organicsacekimi"
+    }
+  ],
+  "estetik_plastik_cerrahi": [
+    {
+      "id": "2",
+      "title": "BURUN_ESTETİĞİ",
+      "content": "BURUN_ESTETİĞİ_DESC",
+      "image": "/images/plastik-cerrahi/burunestetigi.jpg",
+      "key": "burunestetiği"
+    },
+    {
+      "id": "3",
+      "title": "İKİNCİL_BURUN_ESTETİĞİ",
+      "content": "İKİNCİL_BURUN_ESTETİĞİ_DESC",
+      "image": "/images/plastik-cerrahi/ikincilburunestetiği.jpg",
+      "key": "ikincilburunestetiği"
+    },
+    {
+      "id": "4",
+      "title": "TÜM_VUCUT_SEKİLLENDİRME",
+      "content": "TÜM_VUCUT_SEKİLLENDİRME_DESC",
+      "image": "/images/plastik-cerrahi/tümvucutsekıllendırme.jpg",
+      "key": "tvş"
+    },
+    {
+      "id": "5",
+      "title": "BBL",
+      "content": "BBL_DESC",
+      "image": "/images/plastik-cerrahi/brezilyapopoestetiği.jpg",
+      "key": "bbl"
+    },
+    {
+      "id": "6",
+      "title": "ÖRÜMCEK_AĞI_TEKNİĞİ",
+      "content": "ÖRÜMCEK_AĞI_TEKNİĞİ_DESC",
+      "image": "/images/plastik-cerrahi/örümcekagıteknıgı.jpg",
+      "key": "spider"
+    },
+    {
+      "id": "7",
+      "title": "YÜZ_KALDIRMA",
+      "content": "YÜZ_KALDIRMA_DESC",
+      "image": "/images/plastik-cerrahi/yüzkaldırma.jpg",
+      "key": "facelift"
+    },
+    {
+      "id": "8",
+      "title": "GÖZ_KAPAĞI_AMELİYATI",
+      "content": "GÖZ_KAPAĞI_AMELİYATI_DESC",
+      "image": "/images/plastik-cerrahi/gözkapagıameliaytı.jpg",
+      "key": "gözlift"
+    },
+    {
+      "id": "9",
+      "title": "KOL_KALDIRMA",
+      "content": "KOL_KALDIRMA_DESC",
+      "image": "/images/plastik-cerrahi/kolkaldırma.jpg",
+      "key": "armlift"
+    },
+    {
+      "id": "10",
+      "title": "BACAK_GERME",
+      "content": "BACAK_GERME_DESC",
+      "image": "/images/plastik-cerrahi/bacakgerme.jpg",
+      "key": "bacakgerme"
+    },
+    {
+      "id": "11",
+      "title": "KARIN_GERME",
+      "content": "KARIN_GERME_DESC",
+      "image": "/images/plastik-cerrahi/karıngerme.jpg",
+      "key": "karıngerme"
+    },
+    {
+      "id": "12",
+      "title": "LIPOSUCTION",
+      "content": "LIPOSUCTION_DESC",
+      "image": "/images/plastik-cerrahi/liposuction.jpg",
+      "key": "lipo"
+    },
+    {
+      "id": "13",
+      "title": "BODY_LIFTING",
+      "content": "BODY_LIFTING_DESC",
+      "image": "/images/plastik-cerrahi/tümvucutgerme.jpg",
+      "key": "bodylifting"
+    },
+    {
+      "id": "14",
+      "title": "DUDAK_KALDIRMA",
+      "content": "DUDAK_KALDIRMA_DESC",
+      "image": "/images/plastik-cerrahi/dudakkaldırma.jpg",
+      "key": "dudakkaldırma"
+    },
+    {
+      "id": "15",
+      "title": "MEME_BUYUTME",
+      "content": "MEME_BUYUTME_DESC",
+      "image": "/images/plastik-cerrahi/memebüyütme.jpg",
+      "key": "memebüyütme"
+    },
+    {
+      "id": "16",
+      "title": "MEME_KUCULTME",
+      "content": "MEME_KUCULTME_DESC",
+      "image": "/images/plastik-cerrahi/memekücültm.jpg",
+      "key": "memekucultme"
+    },
+    {
+      "id": "17",
+      "title": "MEME_KALDIRMA",
+      "content": "MEME_KALDIRMA_DESC",
+      "image": "/images/plastik-cerrahi/memekaldırma.jpg",
+      "key": "memekaldırma"
+    },
+    {
+      "id": "18",
+      "title": "ERKEK_MEME_KUCULTME",
+      "content": "ERKEK_MEME_KUCULTME_DESC",
+      "image": "/images/plastik-cerrahi/erkekmemekucultme.jpg",
+      "key": "erkekmemekucultme"
+    }
+  ],
+  "göz_saglıgı": [
+    {
+      "id": 1,
+      "title": "INTRALASE_LASIK",
+      "content": "INTRALASE_LASIK_DESC",
+      "image": "/images/göz-saglıgı/IntralaseLasik.jpg",
+      "key": "intralaselasik"
+    },
+    {
+      "id": 2,
+      "title": "WAVEFRONT_LASIK",
+      "content": "WAVEFRONT_LASIK_DESC",
+      "image": "/images/göz-saglıgı/WavefrontLasik.jpg",
+      "key": "wavefrontlasik"
+    },
+    {
+      "id": 3,
+      "title": "KATARAKT_MONOFOKAL",
+      "content": "KATARAKT_MONOFOKAL_DESC",
+      "image": "/images/göz-saglıgı/KataraktFakoMonofokalLens.jpg",
+      "key": "katarakmonofokal"
+    },
+    {
+      "id": 4,
+      "title": "KATARAKT_TRIFOKAL",
+      "content": "KATARAKT_TRIFOKAL_DESC",
+      "image": "/images/göz-saglıgı/KataraktFakoTrifokalLens.jpg",
+      "key": "kataraktrikofal"
+    }
+  ],
+  "güzellik-merkezi": [],
+  "galeri": []
+}
