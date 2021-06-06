@@ -1,58 +1,89 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { EstetikPlastikCerrahiStyled } from "../../styles/pages";
 import { useTranslation } from "react-i18next";
-import { estetik_plastik_cerrahi } from "../../assets/content.json";
 import { Row, Nav, Col, Tab } from "react-bootstrap";
 import DataContext from "../../context/dataContext";
+import Markdown from "markdown-to-jsx";
 
 function EstetikPlastikCerrahi() {
   const { t } = useTranslation();
   const dataContext = useContext(DataContext);
-  const { openHandleState } = dataContext;
+  const { openHandleState, estetikPlastikCerState, getEstetikPlastikCer } =
+    dataContext;
+
+  useEffect(() => {
+    getEstetikPlastikCer();
+    // eslint-disable-next-line
+  }, []);
   return (
     <EstetikPlastikCerrahiStyled>
       <div
         className='masthead'
         style={{
-          backgroundImage: `url(/images/plastik-cerrahi/plastikcerrahi.jpg)`,
+          backgroundImage:
+            estetikPlastikCerState &&
+            `url(${
+              process.env.REACT_APP_API_URL +
+              estetikPlastikCerState[0]?.header_image?.url
+            })`,
         }}
       >
-        <h1>{t("ESTETIK_PLASTIK_CERRAHI")}</h1>
+        <h1>
+          {estetikPlastikCerState && estetikPlastikCerState[0].header_title}
+        </h1>
       </div>
       <div className='container'>
         <div className='content'>
           <div className='row'>
             <Tab.Container
               id='left-tabs-example'
-              defaultActiveKey='burunestetiği'
+              defaultActiveKey={
+                (estetikPlastikCerState &&
+                  estetikPlastikCerState[0].estetik_tabs[0].title) ||
+                "Burun Estetiği (Rinoplasty)"
+              }
             >
               <Row>
                 <Col sm={3}>
                   <Nav variant='pills' className='flex-column'>
-                    {estetik_plastik_cerrahi.map((item) => (
-                      <Nav.Item key={item.key}>
-                        <Nav.Link eventKey={item.key} key={item.key}>
-                          {t(item.title)}
-                        </Nav.Link>
-                      </Nav.Item>
-                    ))}
+                    {estetikPlastikCerState &&
+                      estetikPlastikCerState[0].estetik_tabs.map((item) => (
+                        <Nav.Item key={item.id}>
+                          <Nav.Link eventKey={item.title}>
+                            {item.title}
+                          </Nav.Link>
+                        </Nav.Item>
+                      ))}
                   </Nav>
                 </Col>
                 <Col sm={9}>
                   <Tab.Content>
-                    {estetik_plastik_cerrahi.map((item) => (
-                      <Tab.Pane eventKey={item.key} key={item.key}>
-                        <h1> {t(item.title)}</h1>
-                        <p>{t(item.content)}</p>
-                        <img src={item.image} alt={t(item.title)} />
-                        <button
-                          className='appointment-button'
-                          onClick={() => openHandleState("block")}
-                        >
-                          {t("APPOINTMENT")}
-                        </button>
-                      </Tab.Pane>
-                    ))}
+                    {estetikPlastikCerState &&
+                      estetikPlastikCerState[0].estetik_tabs.map((item) => (
+                        <Tab.Pane eventKey={item.title} key={item.key}>
+                          <h1> {t(item.title)}</h1>
+                          <Markdown>{item.description}</Markdown>
+                          <br />
+                          <br />
+                          <img
+                            src={process.env.REACT_APP_API_URL + item.image.url}
+                            alt={item.title}
+                          />
+                          <br />
+                          <br />
+                          {item.bottom_description && (
+                            <Markdown>{item.bottom_description}</Markdown>
+                          )}
+                          <br />
+                          <br />
+                          <button
+                            className='appointment-button'
+                            onClick={() => openHandleState("block")}
+                          >
+                            {t("APPOINTMENT")}
+                          </button>
+                        </Tab.Pane>
+                      ))}
                   </Tab.Content>
                 </Col>
               </Row>

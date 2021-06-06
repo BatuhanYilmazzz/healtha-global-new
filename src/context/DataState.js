@@ -77,7 +77,7 @@ const DataState = (props) => {
     try {
       const res = await axios.get(`${process.env.REACT_APP_API_URL}/sacekimis`);
       dispatch({
-        type: GET_HAKKIMIZDA,
+        type: GET_SAC_EKIMI,
         payload: res.data,
       });
     } catch (err) {
@@ -91,7 +91,7 @@ const DataState = (props) => {
         `${process.env.REACT_APP_API_URL}/hakkimizdas`
       );
       dispatch({
-        type: GET_SAC_EKIMI,
+        type: GET_HAKKIMIZDA,
         payload: res.data,
       });
     } catch (err) {
@@ -259,6 +259,9 @@ const DataState = (props) => {
         getAnaSayfa,
         getOthers,
         anasayfaState: state.anasayfaState,
+        sacEkimiState: state.sacEkimiState,
+        gozSaglıgıState: state.gozSaglıgıState,
+        estetikPlastikCerState: state.estetikPlastikCerState,
       }}
     >
       {props.children}

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -179,7 +179,7 @@ ul {
 }
 .tab-pane{
   padding:0 1rem 1rem 1rem;
-  p{
+  span{
     color:#818386;
     line-height:2.5rem;
     @media (max-width: 768px) {

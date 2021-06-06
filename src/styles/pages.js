@@ -450,7 +450,7 @@ export const SacEkimiStyled = styled.div`
     margin-bottom: 3rem;
     color: #47b9bb;
   }
-  p {
+  span {
     margin-bottom: 3rem;
     color: #818386;
     font-size: 1.1rem;
