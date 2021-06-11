@@ -90,6 +90,7 @@ const DataState = (props) => {
       const res = await axios.get(
         `${process.env.REACT_APP_API_URL}/hakkimizdas`
       );
+      console.log(res.data);
       dispatch({
         type: GET_HAKKIMIZDA,
         payload: res.data,
@@ -262,6 +263,15 @@ const DataState = (props) => {
         sacEkimiState: state.sacEkimiState,
         gozSaglıgıState: state.gozSaglıgıState,
         estetikPlastikCerState: state.estetikPlastikCerState,
+        obeziteMetabolikCerState: state.obeziteMetabolikCerState,
+        agızVeDisState: state.agızVeDisState,
+        kbbState: state.kbbState,
+        guzellikMerkeziState: state.guzellikMerkeziState,
+        hakkımızdaState: state.hakkımızdaState,
+        galeriState: state.galeriState,
+        othersState: state.othersState,
+        formNamesState: state.formNamesState,
+        iletisimState: state.iletisimState,
       }}
     >
       {props.children}

@@ -1,57 +1,77 @@
-import React, { useContext } from 'react';
-import { AgızDisSaglıgıStyled } from '../../styles/pages';
-import { useTranslation } from 'react-i18next';
-import DataContext from '../../context/dataContext';
+import React, { useContext, useEffect } from "react";
+import { AgızDisSaglıgıStyled } from "../../styles/pages";
+import { useTranslation } from "react-i18next";
+import DataContext from "../../context/dataContext";
+import Markdown from "markdown-to-jsx";
 
 function AgızDisSaglıgı() {
   const { t } = useTranslation();
   const dataContext = useContext(DataContext);
-  const { openHandleState } = dataContext;
+  const { openHandleState, getAgızDis, agızVeDisState } = dataContext;
+
+  useEffect(() => {
+    getAgızDis();
+    // eslint-disable-next-line
+  }, []);
   return (
     <AgızDisSaglıgıStyled>
       <div
         className='masthead'
         style={{
-          backgroundImage: `url(/images/agız-dis/agızvedis.jpg)`,
+          backgroundImage:
+            agızVeDisState &&
+            `url(${
+              process.env.REACT_APP_API_URL +
+              agızVeDisState[0]?.header_image?.url
+            })`,
         }}
       >
-        <h1>{t('AĞIZ_VE_DİŞ_SAGLIGI')}</h1>
+        <h1>{agızVeDisState && agızVeDisState[0].header_title}</h1>
       </div>
       <div className='row'>
         <div className='col-12 content'>
           <div className='container'>
-            <p className='comment'>{t('AĞIZ_VE_DİŞ_SAGLIGI_DESC')}</p>
+            <p className='comment'>
+              {agızVeDisState && agızVeDisState[0]?.main_part.description && (
+                <Markdown>{agızVeDisState[0]?.main_part.description}</Markdown>
+              )}
+            </p>
             <div className='row'>
               <div className='col-sm-12 col-md-6'>
-                <img
-                  className='w-100'
-                  src='/images/agız-dis/agızvedıs2.jpg'
-                  alt={t('AĞIZ_VE_DİŞ_SAGLIGI')}
-                />
-                <img
-                  className='w-100'
-                  src='/images/agız-dis/agızvedıs3.jpg'
-                  alt={t('AĞIZ_VE_DİŞ_SAGLIGI')}
-                />
+                {agızVeDisState && agızVeDisState[0]?.main_part?.img_1 && (
+                  <img
+                    className='w-100'
+                    src={
+                      process.env.REACT_APP_API_URL +
+                      agızVeDisState[0]?.main_part?.img_1.url
+                    }
+                    alt=''
+                  />
+                )}
+                {agızVeDisState && agızVeDisState[0]?.main_part?.img_2 && (
+                  <img
+                    className='w-100'
+                    src={
+                      process.env.REACT_APP_API_URL +
+                      agızVeDisState[0]?.main_part?.img_2.url
+                    }
+                    alt=''
+                  />
+                )}
               </div>
               <div className='col-sm-12 col-md-6'>
                 <ul>
-                  <li>{t('Porselen_lamina')}</li>
-                  <li>{t('Kompozit_lamina')}</li>
-                  <li>{t('Zirkonyum')} </li>
-                  <li>{t('E_max')}</li>
-                  <li>{t('Beyazlatma')}</li>
-                  <li>{t('Ağız_çene_cerrahisi')}</li>
-                  <li>{t('Estetik_diş_hekimliği')}</li>
-                  <li>{t('Protez')}</li>
-                  <li>{t('Ortodonti')}</li>
-                  <li>{t('Koruyucu_diş_tedavisi')}</li>
+                  <ul>
+                    {agızVeDisState && agızVeDisState[0]?.main_part.topics && (
+                      <Markdown>{agızVeDisState[0]?.main_part.topics}</Markdown>
+                    )}
+                  </ul>
                 </ul>
                 <button
                   className='appointment-button'
-                  onClick={() => openHandleState('block')}
+                  onClick={() => openHandleState("block")}
                 >
-                  {t('GET_APPOINTMENT')}
+                  {t("GET_APPOINTMENT")}
                 </button>
               </div>
             </div>

@@ -1,37 +1,38 @@
-import React from 'react';
-import { AboutUsStyled } from '../../styles/pages';
-import { useTranslation } from 'react-i18next';
+import React, { useContext, useEffect } from "react";
+import { AboutUsStyled } from "../../styles/pages";
+import { useTranslation } from "react-i18next";
+import DataContext from "../../context/dataContext";
+import Markdown from "markdown-to-jsx";
 
 function AboutUs() {
   const { t } = useTranslation();
+  const dataContext = useContext(DataContext);
+  const { getHakkımızda, hakkımızdaState } = dataContext;
+
+  useEffect(() => {
+    getHakkımızda();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <AboutUsStyled>
       <div
         className='masthead'
-        style={{ backgroundImage: `url(/images/about-us/aboutus.jpg)` }}
+        style={{
+          backgroundImage:
+            hakkımızdaState &&
+            `url(${
+              process.env.REACT_APP_API_URL +
+              hakkımızdaState[0]?.header_image?.url
+            })`,
+        }}
       >
-        <h1>{t('ABOUT_US')}</h1>
+        <h1>{hakkımızdaState && hakkımızdaState[0].header_title}</h1>
       </div>
       <div className='container'>
-        <div className='row'>
-          <div className='col'>
-            <h1>{t('WHO_WE_ARE')}</h1>
-            <p>{t('WHO_WE_ARE_DESC')}</p>
-          </div>
-        </div>
-        <div className='row'>
-          <div className='col'>
-            <h1>{t('OUR_MISSION')}</h1>
-            <p>{t('OUR_MISSION_DESC')}</p>
-          </div>
-        </div>
-        <div className='row'>
-          <div className='col'>
-            <h1>{t('OUR_VISION')}</h1>
-            <p>{t('OUR_VISION_DESC')}</p>
-          </div>
-        </div>
+        {hakkımızdaState && hakkımızdaState[0]?.description && (
+          <Markdown>{hakkımızdaState[0]?.description}</Markdown>
+        )}
       </div>
     </AboutUsStyled>
   );

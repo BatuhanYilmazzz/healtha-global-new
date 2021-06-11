@@ -1,51 +1,89 @@
-import React, { useContext } from 'react';
-import { ObeziteMetabolikCerrahiStyled } from '../../styles/pages';
-import { useTranslation } from 'react-i18next';
-import DataContext from '../../context/dataContext';
+import React, { useContext, useEffect } from "react";
+import { ObeziteMetabolikCerrahiStyled } from "../../styles/pages";
+import { useTranslation } from "react-i18next";
+import DataContext from "../../context/dataContext";
+import Markdown from "markdown-to-jsx";
+
 function ObeziteMetabolikCerrahi() {
   const { t } = useTranslation();
   const dataContext = useContext(DataContext);
-  const { openHandleState } = dataContext;
+  const { openHandleState, getObeziteMetabolikCer, obeziteMetabolikCerState } =
+    dataContext;
+
+  useEffect(() => {
+    getObeziteMetabolikCer();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <ObeziteMetabolikCerrahiStyled>
       <div
         className='masthead'
         style={{
-          backgroundImage: `url(/images/obezite-metabolik-cerrahi/obezitemetabolikcerrahi.jpg)`,
+          backgroundImage:
+            obeziteMetabolikCerState &&
+            `url(${
+              process.env.REACT_APP_API_URL +
+              obeziteMetabolikCerState[0]?.header_image?.url
+            })`,
         }}
       >
-        <h1>{t('OBEZITE_METABOLİK_CERRAHI')}</h1>
+        <h1>
+          {obeziteMetabolikCerState && obeziteMetabolikCerState[0].header_title}
+        </h1>
       </div>
-      <div className='container'>
-        <div className='row'>
-          <div className='col content'>
-            <p className='comment'>{t('OBEZITE_METABOLİK_CERRAHI_DESC')}</p>
+      <div className='row'>
+        <div className='col-12 content'>
+          <div className='container'>
+            <p className='comment'>
+              {obeziteMetabolikCerState &&
+                obeziteMetabolikCerState[0]?.main_part.description && (
+                  <Markdown>
+                    {obeziteMetabolikCerState[0]?.main_part.description}
+                  </Markdown>
+                )}
+            </p>
             <div className='row'>
               <div className='col-sm-12 col-md-6'>
-                <img
-                  src='/images/obezite-metabolik-cerrahi/obezite.jpg'
-                  alt={t('OBEZITE_METABOLİK_CERRAHI')}
-                />
+                {obeziteMetabolikCerState &&
+                  obeziteMetabolikCerState[0]?.main_part?.img_1 && (
+                    <img
+                      className='w-100'
+                      src={
+                        process.env.REACT_APP_API_URL +
+                        obeziteMetabolikCerState[0]?.main_part?.img_1.url
+                      }
+                      alt=''
+                    />
+                  )}
+                {obeziteMetabolikCerState &&
+                  obeziteMetabolikCerState[0]?.main_part?.img_2 && (
+                    <img
+                      className='w-100'
+                      src={
+                        process.env.REACT_APP_API_URL +
+                        obeziteMetabolikCerState[0]?.main_part?.img_2.url
+                      }
+                      alt=''
+                    />
+                  )}
               </div>
               <div className='col-sm-12 col-md-6'>
                 <ul>
-                  <li>{t('Sleeve_Gastrektomi')}</li>
-                  <li>{t('Gastrik_By-Pass')}</li>
-                  <li>{t('Transit_bipartisyon')}</li>
-                  <li>{t('Diverted_ileal_interpozisyon')}</li>
-                  <li>{t('Non-Diverted_ileal_interpozisyon')}</li>
-                  <li>{t('Sadi-S')}</li>
-                  <li>{t('Kolorektal_kanser_cerrahisi')}</li>
-                  <li>{t('Kolosistektomi')}</li>
-                  <li>{t('Tiroidektomi')}</li>
-                  <li>{t('Hemoroid_Cerrahisi')}</li>
+                  <ul>
+                    {obeziteMetabolikCerState &&
+                      obeziteMetabolikCerState[0]?.main_part.topics && (
+                        <Markdown>
+                          {obeziteMetabolikCerState[0]?.main_part.topics}
+                        </Markdown>
+                      )}
+                  </ul>
                 </ul>
                 <button
                   className='appointment-button'
-                  onClick={() => openHandleState('block')}
+                  onClick={() => openHandleState("block")}
                 >
-                  {t('GET_APPOINTMENT')}
+                  {t("GET_APPOINTMENT")}
                 </button>
               </div>
             </div>
