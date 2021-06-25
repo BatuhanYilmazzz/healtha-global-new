@@ -11,7 +11,7 @@ function OurServices({ data }) {
         <h1>{t("OUR_SERVICES")}</h1>
         <div className='row mb-4'>
           {data &&
-            data[0].services.map((item) => (
+            data[0]?.services.map((item) => (
               <div
                 className='col-sm-12 col-md-6 col-lg-3 position-relative mb-4'
                 key={item.id}

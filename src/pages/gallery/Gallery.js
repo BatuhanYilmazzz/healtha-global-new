@@ -1,15 +1,12 @@
 import React, { Fragment, useState, useEffect, useContext } from "react";
-import { useTranslation } from "react-i18next";
 import Lightbox from "react-image-lightbox";
 import DataContext from "../../context/dataContext";
 import "react-image-lightbox/style.css";
 
 ///
 const Gallery = () => {
-  const { t } = useTranslation();
   const dataContext = useContext(DataContext);
   const { getGaleri, galeriState } = dataContext;
-  console.log(galeriState);
 
   useEffect(() => {
     getGaleri();
@@ -31,9 +28,15 @@ const Gallery = () => {
     <Fragment>
       <div
         className='masthead'
-        style={{ backgroundImage: `url(/images/galeri/gallery.jpg)` }}
+        style={{
+          backgroundImage:
+            galeriState &&
+            `url(${
+              process.env.REACT_APP_API_URL + galeriState[0]?.header_image?.url
+            })`,
+        }}
       >
-        <h1>{t("GALERİ_H1")}</h1>
+        <h1> {galeriState && galeriState[0].header_title}</h1>
       </div>
       <div className='gallery'>
         <div className='content'>

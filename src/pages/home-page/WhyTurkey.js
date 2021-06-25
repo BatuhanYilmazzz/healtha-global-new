@@ -9,7 +9,7 @@ function WhyTurkey({ data }) {
       <div className='row'>
         <div className='col'>
           <div className='container'>
-            <h1>{data && data[0].turkiye_health_turizm_title}</h1>
+            <h1>{data && data[0]?.turkiye_health_turizm_title}</h1>
             <br />
             {data && <Markdown>{data[0]?.turkiye_health_turizm_desc}</Markdown>}
           </div>

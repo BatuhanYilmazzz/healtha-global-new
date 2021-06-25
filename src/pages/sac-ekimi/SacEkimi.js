@@ -28,7 +28,7 @@ function SacEkimi() {
             })`,
         }}
       >
-        <h1>{sacEkimiState && sacEkimiState[0].header_title}</h1>
+        <h1>{sacEkimiState && sacEkimiState[0]?.header_title}</h1>
       </div>
       <div className='container'>
         <div className='content'>
@@ -36,7 +36,7 @@ function SacEkimi() {
             <Tab.Container
               id='left-tabs-example'
               defaultActiveKey={
-                (sacEkimiState && sacEkimiState[0].sac_ekimi_tab[0].title) ||
+                (sacEkimiState && sacEkimiState[0]?.sac_ekimi_tab[0].title) ||
                 "DHI"
               }
             >
@@ -44,7 +44,7 @@ function SacEkimi() {
                 <Col sm={3}>
                   <Nav variant='pills' className='flex-column'>
                     {sacEkimiState &&
-                      sacEkimiState[0].sac_ekimi_tab.map((item) => (
+                      sacEkimiState[0]?.sac_ekimi_tab.map((item) => (
                         <Nav.Item key={item.id}>
                           <Nav.Link eventKey={item.title}>
                             {item.title}
@@ -56,10 +56,12 @@ function SacEkimi() {
                 <Col sm={9}>
                   <Tab.Content>
                     {sacEkimiState &&
-                      sacEkimiState[0].sac_ekimi_tab.map((item) => (
+                      sacEkimiState[0]?.sac_ekimi_tab.map((item) => (
                         <Tab.Pane eventKey={item.title} key={item.key}>
                           <h1> {t(item.title)}</h1>
-                          <Markdown>{item.description}</Markdown>
+                          <Markdown className='desc'>
+                            {item.description}
+                          </Markdown>
                           <br />
                           <br />
                           <img
@@ -69,7 +71,9 @@ function SacEkimi() {
                           <br />
                           <br />
                           {item.bottom_description && (
-                            <Markdown>{item.bottom_description}</Markdown>
+                            <Markdown className='desc'>
+                              {item.bottom_description}
+                            </Markdown>
                           )}
                           <br />
                           <br />

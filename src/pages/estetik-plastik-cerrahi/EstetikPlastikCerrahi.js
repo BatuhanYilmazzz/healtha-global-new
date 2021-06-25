@@ -61,7 +61,7 @@ function EstetikPlastikCerrahi() {
                     {estetikPlastikCerState &&
                       estetikPlastikCerState[0].estetik_tabs.map((item) => (
                         <Tab.Pane eventKey={item.title} key={item.key}>
-                          <h1> {t(item.title)}</h1>
+                          <h1> {item.title}</h1>
                           <Markdown>{item.description}</Markdown>
                           <br />
                           <br />

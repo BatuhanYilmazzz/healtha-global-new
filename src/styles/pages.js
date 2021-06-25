@@ -450,11 +450,13 @@ export const SacEkimiStyled = styled.div`
     margin-bottom: 3rem;
     color: #47b9bb;
   }
-  span {
+  .desc {
     margin-bottom: 3rem;
     color: #818386;
     font-size: 1.1rem;
+    line-height: 2.5rem;
   }
+
   img {
     margin-bottom: 2rem;
   }
