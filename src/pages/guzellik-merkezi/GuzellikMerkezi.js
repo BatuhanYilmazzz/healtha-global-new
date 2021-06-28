@@ -26,7 +26,7 @@ function GuzellikMerkezi() {
             })`,
         }}
       >
-        <h1>{guzellikMerkeziState && guzellikMerkeziState[0].header_title}</h1>
+        <h1>{guzellikMerkeziState && guzellikMerkeziState[0]?.header_title}</h1>
       </div>
 
       <div className='content'>
@@ -71,7 +71,7 @@ function GuzellikMerkezi() {
           <div className='container'>
             <div className='row '>
               {guzellikMerkeziState &&
-                guzellikMerkeziState[0].beauty_photos.map((item) => (
+                guzellikMerkeziState[0]?.beauty_photos.map((item) => (
                   <div className='col-sm-12 col-md-6 col-lg-3'>
                     <img
                       src={process.env.REACT_APP_API_URL + item.image.url}

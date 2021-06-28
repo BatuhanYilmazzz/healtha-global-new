@@ -1,11 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import { AboutUsStyled } from "../../styles/pages";
-import { useTranslation } from "react-i18next";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
 
 function AboutUs() {
-  const { t } = useTranslation();
   const dataContext = useContext(DataContext);
   const { getHakkımızda, hakkımızdaState } = dataContext;
 
@@ -27,7 +25,7 @@ function AboutUs() {
             })`,
         }}
       >
-        <h1>{hakkımızdaState && hakkımızdaState[0].header_title}</h1>
+        <h1>{hakkımızdaState && hakkımızdaState[0]?.header_title}</h1>
       </div>
       <div className='container'>
         {hakkımızdaState && hakkımızdaState[0]?.description && (

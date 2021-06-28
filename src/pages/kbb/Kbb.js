@@ -26,7 +26,7 @@ function Kbb() {
             })`,
         }}
       >
-        <h1>{kbbState && kbbState[0].header_title}</h1>
+        <h1>{kbbState && kbbState[0]?.header_title}</h1>
       </div>
       <div className='row'>
         <div className='col-12 content'>

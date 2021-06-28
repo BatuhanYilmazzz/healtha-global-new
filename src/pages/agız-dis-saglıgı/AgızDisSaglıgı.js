@@ -26,7 +26,7 @@ function AgızDisSaglıgı() {
             })`,
         }}
       >
-        <h1>{agızVeDisState && agızVeDisState[0].header_title}</h1>
+        <h1>{agızVeDisState && agızVeDisState[0]?.header_title}</h1>
       </div>
       <div className='row'>
         <div className='col-12 content'>

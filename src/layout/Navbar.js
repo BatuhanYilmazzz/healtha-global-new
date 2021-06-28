@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 import { NavbarStyled } from "../styles/components";
 import { handleScroll } from "../animations/animation";
 import { useTranslation } from "react-i18next";
@@ -22,9 +22,16 @@ function Navbar() {
   let lang = localStorage.getItem("i18nextLng");
   const dataContext = useContext(DataContext);
   const { getLang } = dataContext;
+  const history = useHistory();
+  const location = useLocation();
 
   const handleClick = (language) => {
     i18n.changeLanguage(language);
+    if (location.pathname === "/") {
+      window.location.reload();
+    } else {
+      history.push("/");
+    }
   };
 
   useEffect(() => {
@@ -113,11 +120,16 @@ function Navbar() {
                   </NavLink>
                 </li>
                 <li className='nav-item'>
+                  <NavLink className='nav-link nav-drop' to='/guzellik-merkezi'>
+                    {t("GUZELLİK_MERKEZİ")}
+                  </NavLink>
+                </li>
+                <li className='nav-item'>
                   <NavLink
                     className='nav-link border-0 nav-drop'
-                    to='/guzellik-merkezi'
+                    to='/organizasyon-hizmetleri'
                   >
-                    {t("GUZELLİK_MERKEZİ")}
+                    {t("ORGANİZASYON_HIZMETLERİ")}
                   </NavLink>
                 </li>
                 <li className='nav-item d-lg-none'>
@@ -183,13 +195,17 @@ function Navbar() {
                 <li className='nav-item d-lg-none d-flex align-items-center justify-content-flex-start mobile-nav-social'>
                   <button
                     className={`${lang === "tr" ? "langactive" : ""} nav-drop`}
-                    onClick={() => handleClick("tr")}
+                    onClick={() => {
+                      handleClick("tr");
+                    }}
                   >
                     TR
                   </button>
                   <button
                     className={`${lang === "en" ? "langactive" : ""} nav-drop`}
-                    onClick={() => handleClick("en")}
+                    onClick={() => {
+                      handleClick("en");
+                    }}
                   >
                     EN
                   </button>

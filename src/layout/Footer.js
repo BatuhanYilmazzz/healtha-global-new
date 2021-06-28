@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { FooterStyled } from '../styles/components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { FooterStyled } from "../styles/components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTwitter,
   faFacebook,
   faInstagram,
   faLinkedinIn,
   faYoutube,
-} from '@fortawesome/free-brands-svg-icons';
-import { v4 } from 'uuid';
+} from "@fortawesome/free-brands-svg-icons";
+import { v4 } from "uuid";
 
 /*let lang;
 if (localStorage.i18nextLng) {
@@ -20,7 +20,7 @@ const Footer = () => {
   const { t, i18n } = useTranslation();
   // Context
   const [state, setState] = useState({
-    email: '',
+    email: "",
   });
   const handleChange = (e) => {
     setState({
@@ -30,7 +30,7 @@ const Footer = () => {
   };
   const { email } = state;
   const sendForm = () => {
-    console.log('work');
+    console.log("work");
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,9 +38,9 @@ const Footer = () => {
       id: v4(),
       email,
     });
-    alert('Thank you for subscribe');
+    alert("Thank you for subscribe");
     setState({
-      email: '',
+      email: "",
     });
   };
 
@@ -58,9 +58,9 @@ const Footer = () => {
                 onChange={handleChange}
                 value={state.email}
                 name='email'
-                placeholder={t('E_MAIL')}
+                placeholder={t("E_MAIL")}
               />
-              <button type='submit'>{t('SUBSCRIBE')}</button>
+              <button type='submit'>{t("SUBSCRIBE")}</button>
             </form>
           </div>
           <div className='col-sm-12 col-md-6 col-lg-3'>
@@ -113,7 +113,7 @@ const Footer = () => {
         </div>
         <div className='footer__kvkk'>
           <a download href={`/kvkk/kvkk_${i18n.language}.pdf`}>
-            {t('KVKK_FOOTER')}
+            {t("KVKK_FOOTER")}
           </a>
           <p>Copyright © 2020 Healtha Global</p>
         </div>

@@ -1,27 +1,35 @@
-import React, { useEffect, useContext } from 'react';
-import { NavLink } from 'react-router-dom';
-import { NavbarSocialStyled } from '../styles/components';
-import { useTranslation } from 'react-i18next';
-import DataContext from '../context/dataContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useContext } from "react";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
+import { NavbarSocialStyled } from "../styles/components";
+import { useTranslation } from "react-i18next";
+import DataContext from "../context/dataContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTwitter,
   faFacebook,
   faInstagram,
   faLinkedinIn,
   faYoutube,
-} from '@fortawesome/free-brands-svg-icons';
+} from "@fortawesome/free-brands-svg-icons";
 
 //
 //
 function NavbarSocial() {
   const { t, i18n } = useTranslation();
-  let lang = localStorage.getItem('i18nextLng');
+  let lang = localStorage.getItem("i18nextLng");
   const dataContext = useContext(DataContext);
   const { getLang } = dataContext;
 
+  const history = useHistory();
+  const location = useLocation();
+
   const handleClick = (language) => {
     i18n.changeLanguage(language);
+    if (location.pathname === "/") {
+      window.location.reload();
+    } else {
+      history.push("/");
+    }
   };
 
   useEffect(() => {
@@ -34,23 +42,23 @@ function NavbarSocial() {
         <div className='text-right col py-2'>
           <div className='container'>
             <NavLink to='/about-us' className='animate-link'>
-              {t('ABOUT_US')}
+              {t("ABOUT_US")}
             </NavLink>
             <NavLink to='/gallery' className='animate-link'>
-              {t('GALERİ')}
+              {t("GALERİ")}
             </NavLink>
             <NavLink to='/contact-us' className='mr-4 animate-link'>
-              {t('İLETİŞİM')}
+              {t("İLETİŞİM")}
             </NavLink>
             <button
-              className={`animate-link ${lang === 'tr' ? 'langactive' : ''}`}
-              onClick={() => handleClick('tr')}
+              className={`animate-link ${lang === "tr" ? "langactive" : ""}`}
+              onClick={() => handleClick("tr")}
             >
               TR
             </button>
             <button
-              className={`animate-link ${lang === 'en' ? 'langactive' : ''}`}
-              onClick={() => handleClick('en')}
+              className={`animate-link ${lang === "en" ? "langactive" : ""}`}
+              onClick={() => handleClick("en")}
             >
               EN
             </button>

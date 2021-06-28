@@ -15,7 +15,7 @@ const Gallery = () => {
 
   const swiperimages =
     galeriState &&
-    galeriState[0].gallery_images.map(
+    galeriState[0]?.gallery_images.map(
       (item) => process.env.REACT_APP_API_URL + item.image.url
     );
   // images && images.map((e) => process.env.REACT_APP_API_URL + e.url);
@@ -36,7 +36,7 @@ const Gallery = () => {
             })`,
         }}
       >
-        <h1> {galeriState && galeriState[0].header_title}</h1>
+        <h1> {galeriState && galeriState[0]?.header_title}</h1>
       </div>
       <div className='gallery'>
         <div className='content'>
@@ -48,7 +48,9 @@ const Gallery = () => {
                     <img
                       src={item}
                       alt={item}
-                      onClick={() => setState({ ...state, isOpen: true })}
+                      onClick={() =>
+                        setState({ photoIndex: index, isOpen: true })
+                      }
                     />
                   </div>
                 ))}

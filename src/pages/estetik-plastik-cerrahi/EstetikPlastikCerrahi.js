@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Row, Nav, Col, Tab } from "react-bootstrap";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
-
+import { getLanguage } from "../../utils";
 function EstetikPlastikCerrahi() {
   const { t } = useTranslation();
   const dataContext = useContext(DataContext);
@@ -15,6 +15,7 @@ function EstetikPlastikCerrahi() {
     getEstetikPlastikCer();
     // eslint-disable-next-line
   }, []);
+
   return (
     <EstetikPlastikCerrahiStyled>
       <div
@@ -29,7 +30,7 @@ function EstetikPlastikCerrahi() {
         }}
       >
         <h1>
-          {estetikPlastikCerState && estetikPlastikCerState[0].header_title}
+          {estetikPlastikCerState && estetikPlastikCerState[0]?.header_title}
         </h1>
       </div>
       <div className='container'>
@@ -39,15 +40,17 @@ function EstetikPlastikCerrahi() {
               id='left-tabs-example'
               defaultActiveKey={
                 (estetikPlastikCerState &&
-                  estetikPlastikCerState[0].estetik_tabs[0].title) ||
-                "Burun Estetiği (Rinoplasty)"
+                  estetikPlastikCerState[0]?.estetik_tabs[0]?.title) ||
+                getLanguage() === "tr"
+                  ? "Burun Estetiği (Rinoplasty)"
+                  : "Rhinoplasty"
               }
             >
               <Row>
                 <Col sm={3}>
                   <Nav variant='pills' className='flex-column'>
                     {estetikPlastikCerState &&
-                      estetikPlastikCerState[0].estetik_tabs.map((item) => (
+                      estetikPlastikCerState[0]?.estetik_tabs.map((item) => (
                         <Nav.Item key={item.id}>
                           <Nav.Link eventKey={item.title}>
                             {item.title}
@@ -59,7 +62,7 @@ function EstetikPlastikCerrahi() {
                 <Col sm={9}>
                   <Tab.Content>
                     {estetikPlastikCerState &&
-                      estetikPlastikCerState[0].estetik_tabs.map((item) => (
+                      estetikPlastikCerState[0]?.estetik_tabs.map((item) => (
                         <Tab.Pane eventKey={item.title} key={item.key}>
                           <h1> {item.title}</h1>
                           <Markdown>{item.description}</Markdown>
