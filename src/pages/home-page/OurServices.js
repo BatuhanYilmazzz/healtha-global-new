@@ -16,7 +16,7 @@ function OurServices({ data }) {
                 className='col-sm-12 col-md-6 col-lg-3 position-relative mb-4'
                 key={item.id}
               >
-                <NavLink to={{ pathname: "/sac-ekimi", state: "dhi" }}>
+                <NavLink to={{ pathname: `/${item.navigation}` }}>
                   <div className='img-hover-zoom'>
                     <img
                       src={
