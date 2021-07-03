@@ -1,28 +1,40 @@
-import React, { useContext } from 'react';
-import { OrganizasyonHizmetleriStyled } from '../../styles/pages';
-import { useTranslation } from 'react-i18next';
-import DataContext from '../../context/dataContext';
+import React, { useContext, useEffect } from "react";
+import { OrganizasyonHizmetleriStyled } from "../../styles/pages";
+import { useTranslation } from "react-i18next";
+import DataContext from "../../context/dataContext";
+import Markdown from "markdown-to-jsx";
+
 const OrganizasyonHizmetleri = () => {
   const { t } = useTranslation();
   const dataContext = useContext(DataContext);
-  const { openHandleState } = dataContext;
+  const { openHandleState, getOrganizations, organizationsState } = dataContext;
+
+  useEffect(() => {
+    getOrganizations();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <OrganizasyonHizmetleriStyled>
       <div
         className='masthead'
         style={{
-          backgroundImage: `url(/images/organizasyon-hizmetleri/organizasyonhizmetleri.jpg)`,
+          backgroundImage:
+            organizationsState &&
+            `url(${
+              process.env.REACT_APP_API_URL +
+              organizationsState[0]?.header_image?.url
+            })`,
         }}
       >
-        <h1>{t('ORGANİZASYON_HIZMETLERİ')}</h1>
+        <h1>{organizationsState && organizationsState[0]?.header_title}</h1>
       </div>
 
       <div className='content'>
         <div className='container'>
           <div className='row'>
             <div className='col-12'>
-              <h4>{t('SURGERY_PLANNING_DESC')}</h4>
+              <h4>{organizationsState && organizationsState[0]?.motto}</h4>
             </div>
           </div>
         </div>
@@ -30,41 +42,30 @@ const OrganizasyonHizmetleri = () => {
         <div className='organization-images'>
           <div className='container'>
             <div className='row '>
-              <div className='col-sm-12 col-md-6 col-lg-3'>
-                <img
-                  src='/images/organizasyon-hizmetleri/organizasyonhizmetleri1.jpg'
-                  alt='güzellik merkezi'
-                />
-              </div>
-              <div className='col-sm-12 col-md-6 col-lg-3'>
-                <img
-                  src='/images/organizasyon-hizmetleri/organizasyonhizmetleri2.jpg'
-                  alt='güzellik merkezi'
-                />
-              </div>
-              <div className='col-sm-12 col-md-6 col-lg-3'>
-                <img
-                  src='/images/organizasyon-hizmetleri/organizasyonhizmetleri3.jpg'
-                  alt='güzellik merkezi'
-                />
-              </div>
-              <div className='col-sm-12 col-md-6 col-lg-3'>
-                <img
-                  src='/images/organizasyon-hizmetleri/organizasyonhizmetleri4.jpg'
-                  alt='güzellik merkezi'
-                />
-              </div>
+              {organizationsState &&
+                organizationsState[0]?.images.map((item) => (
+                  <div className='col-sm-12 col-md-6 col-lg-3'>
+                    <img
+                      src={process.env.REACT_APP_API_URL + item?.image?.url}
+                      alt='güzellik merkezi'
+                    />
+                  </div>
+                ))}
             </div>
           </div>
         </div>
         <div className='container'>
-          <p>{t('ORGANIZATION_DESC')}</p>
-          <p>{t('ORGANIZATION_DESC_2')}</p>
+          {organizationsState && organizationsState[0]?.descrption && (
+            <Markdown className='desc'>
+              {organizationsState && organizationsState[0]?.descrption}
+            </Markdown>
+          )}
+
           <button
             className='appointment-button'
-            onClick={() => openHandleState('block')}
+            onClick={() => openHandleState("block")}
           >
-            {t('GET_APPOINTMENT')}
+            {t("GET_APPOINTMENT")}
           </button>
         </div>
       </div>

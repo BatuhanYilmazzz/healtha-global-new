@@ -20,11 +20,11 @@ function OurServices({ data }) {
                   <div className='img-hover-zoom'>
                     <img
                       src={
-                        process.env.REACT_APP_API_URL + item.service_image.url
+                        process.env.REACT_APP_API_URL + item?.service_image?.url
                       }
                       alt='saçekimi'
                     />
-                    <h6>{item.service_title}</h6>
+                    <h6>{item?.service_title}</h6>
                     <div className='overlay'></div>
                   </div>
                 </NavLink>
