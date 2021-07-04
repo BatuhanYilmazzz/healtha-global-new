@@ -37,7 +37,6 @@ function GozSaglıgı() {
             <Tab.Container
               id='left-tabs-example'
               defaultActiveKey={
-                (gozSaglıgıState && gozSaglıgıState[0]?.goz_tabs[0].title) ||
                 getLanguage() === "tr"
                   ? "Intralase Lasik"
                   : "IntraLase LASIK (Laser Eye Surgery)"

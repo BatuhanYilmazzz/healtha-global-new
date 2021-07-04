@@ -15,7 +15,6 @@ function EstetikPlastikCerrahi() {
     getEstetikPlastikCer();
     // eslint-disable-next-line
   }, []);
-
   return (
     <EstetikPlastikCerrahiStyled>
       <div
@@ -39,8 +38,6 @@ function EstetikPlastikCerrahi() {
             <Tab.Container
               id='left-tabs-example'
               defaultActiveKey={
-                (estetikPlastikCerState &&
-                  estetikPlastikCerState[0]?.estetik_tabs[0]?.title) ||
                 getLanguage() === "tr"
                   ? "Burun Estetiği (Rinoplasty)"
                   : "Rhinoplasty"

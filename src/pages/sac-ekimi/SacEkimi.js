@@ -33,13 +33,7 @@ function SacEkimi() {
       <div className='container'>
         <div className='content'>
           <div className='row'>
-            <Tab.Container
-              id='left-tabs-example'
-              defaultActiveKey={
-                (sacEkimiState && sacEkimiState[0]?.sac_ekimi_tab[0].title) ||
-                "DHI"
-              }
-            >
+            <Tab.Container id='left-tabs-example' defaultActiveKey={"DHI"}>
               <Row>
                 <Col sm={3}>
                   <Nav variant='pills' className='flex-column'>
