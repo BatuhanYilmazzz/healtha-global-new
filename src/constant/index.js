@@ -6,8 +6,8 @@ export const emailjsInfo = {
 
 export const mailTemplate = (state, t) => {
   const template = `
-  <p>${t("PHONE_NUMBER")} : ${state.phoneNumber} kg</p>
-  <p>${t("E_MAIL")} : ${state.email} kg</p>
+  <p>${t("PHONE_NUMBER")} : ${state.phoneNumber}</p>
+  <p>${t("E_MAIL")} : ${state.email}</p>
   <p>${t("WEIGHT")} : ${state.weight} kg</p>
   <p>${t("LENGTH")} : ${state.length} cm</p>
   <p>${t("BLOOD_GROUP")} : ${state.bloodType}</p> 

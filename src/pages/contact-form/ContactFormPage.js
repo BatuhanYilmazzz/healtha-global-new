@@ -63,7 +63,7 @@ function ContactForm() {
 
   var template_params = {
     reply_to: "reply_to_value",
-    from_name: `${state.name} ${state.surname}, ${state.email} , ${state.phoneNumber}`,
+    from_name: `${state.name} ${state.surname}`,
     to_name: "Healtha Global",
     message: mailTemplate(state, t),
   };
@@ -71,7 +71,6 @@ function ContactForm() {
   function sendEmail(e) {
     e.preventDefault();
 
-    console.log(template_params);
     emailjs
       .send(
         emailjsInfo.service_id,
