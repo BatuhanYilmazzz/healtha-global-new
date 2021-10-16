@@ -19,6 +19,7 @@ import ContactForm from "./layout/ContactForm";
 import OrganizasyonHizmetleri from "./pages/organizasyon-hizmetleri/OrganizasyonHizmetleri";
 import Whatsapp from "./layout/Whatsapp";
 import ScrollToTop from "./layout/ScrollToTop";
+import ContactFormPage from "./pages/contact-form/ContactFormPage";
 ///
 ///
 ///
@@ -53,6 +54,7 @@ function App() {
             path='/organizasyon-hizmetleri'
             component={OrganizasyonHizmetleri}
           />
+          <Route exact path='/contact-form' component={ContactFormPage} />
         </Switch>
         <Whatsapp />
         <ContactForm />
