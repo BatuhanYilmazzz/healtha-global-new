@@ -201,7 +201,8 @@ export const ConsultancyStyled = styled.div`
     line-height: 4rem;
   }
   input,
-  textarea {
+  textarea,
+  select {
     display: block;
     width: 100%;
     max-width: 850px;

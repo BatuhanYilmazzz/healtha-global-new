@@ -394,7 +394,8 @@ export const ContactFormBodyStyled = styled.div`
     max-width: 850px;
     margin: 1rem auto;
   }
-  input {
+  input,
+  select {
     display: block;
     width: 100%;
     max-width: 850px;

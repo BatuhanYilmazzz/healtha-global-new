@@ -20,6 +20,7 @@ function ContactForm() {
     service: "",
     phone: "",
   });
+
   const onChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
@@ -96,14 +97,29 @@ function ContactForm() {
             onChange={onChange}
             required
           />
-          <input
-            type='text'
-            placeholder={t("CHOOSE_SERVICE")}
+
+          <select
+            aria-label='Default select example'
             name='service'
             value={state.service}
             onChange={onChange}
-            required
-          />
+          >
+            <option selected>{t("CHOOSE_SERVICE")}</option>
+            <option value={t("SERVICES_HAIR")}>{t("SERVICES_HAIR")}</option>
+            <option value={t("SERVICES_PLASTIC_SURGERY")}>
+              {t("SERVICES_PLASTIC_SURGERY")}
+            </option>
+            <option value={t("SERVICES_METABOLIC_SURGERY")}>
+              {t("SERVICES_METABOLIC_SURGERY")}
+            </option>
+            <option value={t("SERVICES_KBB")}>{t("SERVICES_KBB")}</option>
+            <option value={t("SERVICES_TEETH")}>{t("SERVICES_TEETH")}</option>
+            <option value={t("SERVICES_EYE")}>{t("SERVICES_EYE")}</option>
+            <option value={t("SERVICES_BEAUTY")}>{t("SERVICES_BEAUTY")}</option>
+            <option value={t("SERVICES_ORGANIZATION")}>
+              {t("SERVICES_ORGANIZATION")}
+            </option>
+          </select>
 
           <p className='messages-wrapper'>
             <input type='checkbox' className='messages' />
