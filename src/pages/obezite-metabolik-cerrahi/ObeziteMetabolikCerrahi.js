@@ -29,7 +29,8 @@ function ObeziteMetabolikCerrahi() {
         }}
       >
         <h1>
-          {obeziteMetabolikCerState && obeziteMetabolikCerState[0].header_title}
+          {obeziteMetabolikCerState &&
+            obeziteMetabolikCerState[0]?.header_title}
         </h1>
       </div>
       <div className='row'>

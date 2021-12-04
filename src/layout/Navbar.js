@@ -209,6 +209,22 @@ function Navbar() {
                   >
                     EN
                   </button>
+                  <button
+                    className={`${lang === "fr" ? "langactive" : ""} nav-drop`}
+                    onClick={() => {
+                      handleClick("fr");
+                    }}
+                  >
+                    FR
+                  </button>
+                  <button
+                    className={`${lang === "ru" ? "langactive" : ""} nav-drop`}
+                    onClick={() => {
+                      handleClick("ru");
+                    }}
+                  >
+                    RU
+                  </button>
                   <a
                     href='https://ar.healthaglobal.com'
                     className='animate-link'

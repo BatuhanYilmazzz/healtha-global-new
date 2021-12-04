@@ -71,8 +71,8 @@ function GuzellikMerkezi() {
           <div className='container'>
             <div className='row '>
               {guzellikMerkeziState &&
-                guzellikMerkeziState[0]?.beauty_photos.map((item) => (
-                  <div className='col-sm-12 col-md-6 col-lg-3'>
+                guzellikMerkeziState[0]?.beauty_photos.map((item, index) => (
+                  <div className='col-sm-12 col-md-6 col-lg-3' key={index}>
                     <img
                       src={process.env.REACT_APP_API_URL + item?.image?.url}
                       alt='güzellik merkezi'
