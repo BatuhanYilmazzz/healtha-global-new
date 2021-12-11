@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { Row, Nav, Col, Tab } from "react-bootstrap";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
-import { getLanguage } from "../../utils";
 
 function GozSaglıgı() {
   const { t } = useTranslation();
@@ -34,23 +33,14 @@ function GozSaglıgı() {
       <div className='container'>
         <div className='content'>
           <div className='row'>
-            <Tab.Container
-              id='left-tabs-example'
-              defaultActiveKey={
-                getLanguage() === "tr"
-                  ? "Intralase Lasik"
-                  : "IntraLase LASIK (Laser Eye Surgery)"
-              }
-            >
+            <Tab.Container id='left-tabs-example' defaultActiveKey={0}>
               <Row>
                 <Col sm={3}>
                   <Nav variant='pills' className='flex-column'>
                     {gozSaglıgıState &&
-                      gozSaglıgıState[0]?.goz_tabs.map((item) => (
+                      gozSaglıgıState[0]?.goz_tabs.map((item, index) => (
                         <Nav.Item key={item.id}>
-                          <Nav.Link eventKey={item.title}>
-                            {item.title}
-                          </Nav.Link>
+                          <Nav.Link eventKey={index}>{item.title}</Nav.Link>
                         </Nav.Item>
                       ))}
                   </Nav>
@@ -58,8 +48,8 @@ function GozSaglıgı() {
                 <Col sm={9}>
                   <Tab.Content>
                     {gozSaglıgıState &&
-                      gozSaglıgıState[0]?.goz_tabs.map((item) => (
-                        <Tab.Pane eventKey={item.title} key={item.key}>
+                      gozSaglıgıState[0]?.goz_tabs.map((item, index) => (
+                        <Tab.Pane eventKey={index} key={item.key}>
                           <h1> {item.title}</h1>
                           <Markdown className='desc'>
                             {item.description}

@@ -33,16 +33,14 @@ function SacEkimi() {
       <div className='container'>
         <div className='content'>
           <div className='row'>
-            <Tab.Container id='left-tabs-example' defaultActiveKey={"DHI"}>
+            <Tab.Container id='left-tabs-example' defaultActiveKey={0}>
               <Row>
                 <Col sm={3}>
                   <Nav variant='pills' className='flex-column'>
                     {sacEkimiState &&
-                      sacEkimiState[0]?.sac_ekimi_tab.map((item) => (
+                      sacEkimiState[0]?.sac_ekimi_tab.map((item, index) => (
                         <Nav.Item key={item.id}>
-                          <Nav.Link eventKey={item.title}>
-                            {item.title}
-                          </Nav.Link>
+                          <Nav.Link eventKey={index}>{item.title}</Nav.Link>
                         </Nav.Item>
                       ))}
                   </Nav>
@@ -50,8 +48,8 @@ function SacEkimi() {
                 <Col sm={9}>
                   <Tab.Content>
                     {sacEkimiState &&
-                      sacEkimiState[0]?.sac_ekimi_tab.map((item) => (
-                        <Tab.Pane eventKey={item.title} key={item.key}>
+                      sacEkimiState[0]?.sac_ekimi_tab.map((item, index) => (
+                        <Tab.Pane eventKey={index} key={item.key}>
                           <h1> {t(item.title)}</h1>
                           <Markdown className='desc'>
                             {item.description}
