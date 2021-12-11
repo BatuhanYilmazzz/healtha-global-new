@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { Row, Nav, Col, Tab } from "react-bootstrap";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
-import { getLanguage } from "../../utils";
 function EstetikPlastikCerrahi() {
   const { t } = useTranslation();
   const dataContext = useContext(DataContext);
