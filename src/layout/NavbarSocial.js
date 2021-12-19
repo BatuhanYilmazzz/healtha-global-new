@@ -78,6 +78,14 @@ function NavbarSocial() {
             >
               RU
             </button>
+            <button
+              className={`${lang === "es" ? "langactive" : ""} nav-drop`}
+              onClick={() => {
+                handleClick("es");
+              }}
+            >
+              ES
+            </button>
             <a
               href='https://ar.healthaglobal.com'
               className='animate-link'
