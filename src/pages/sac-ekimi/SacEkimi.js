@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Row, Nav, Col, Tab } from "react-bootstrap";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
+import { images } from "../../constant/images";
 
 function SacEkimi() {
   const { t } = useTranslation();
@@ -23,8 +24,8 @@ function SacEkimi() {
           backgroundImage:
             sacEkimiState &&
             `url(${
-              process.env.REACT_APP_API_URL +
-              sacEkimiState[0]?.header_image?.url
+              /*  process.env.REACT_APP_API_URL +
+              sacEkimiState[0]?.header_image?.url */ images.sacEkimi.header
             })`,
         }}
       >
@@ -58,7 +59,8 @@ function SacEkimi() {
                           <br />
                           <img
                             src={
-                              process.env.REACT_APP_API_URL + item?.image?.url
+                              /*  process.env.REACT_APP_API_URL + item?.image?.url */ images
+                                .sacEkimi.images[index]
                             }
                             alt={item.title}
                           />

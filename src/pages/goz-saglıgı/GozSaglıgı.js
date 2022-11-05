@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Row, Nav, Col, Tab } from "react-bootstrap";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
+import { images } from "../../constant/images";
 
 function GozSaglıgı() {
   const { t } = useTranslation();
@@ -23,8 +24,8 @@ function GozSaglıgı() {
           backgroundImage:
             gozSaglıgıState &&
             `url(${
-              process.env.REACT_APP_API_URL +
-              gozSaglıgıState[0]?.header_image?.url
+              /*  process.env.REACT_APP_API_URL +
+              gozSaglıgıState[0]?.header_image?.url */ images.gozSaglıgı.header
             })`,
         }}
       >
@@ -58,7 +59,8 @@ function GozSaglıgı() {
                           <br />
                           <img
                             src={
-                              process.env.REACT_APP_API_URL + item?.image?.url
+                              /*  process.env.REACT_APP_API_URL + item?.image?.url */ images
+                                .gozSaglıgı.images[index]
                             }
                             alt={item.title}
                           />

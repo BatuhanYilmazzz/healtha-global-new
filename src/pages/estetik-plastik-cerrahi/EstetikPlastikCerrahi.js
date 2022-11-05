@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Row, Nav, Col, Tab } from "react-bootstrap";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
+import { images } from "../../constant/images";
 function EstetikPlastikCerrahi() {
   const { t } = useTranslation();
   const dataContext = useContext(DataContext);
@@ -22,8 +23,9 @@ function EstetikPlastikCerrahi() {
           backgroundImage:
             estetikPlastikCerState &&
             `url(${
-              process.env.REACT_APP_API_URL +
-              estetikPlastikCerState[0]?.header_image?.url
+              /*  process.env.REACT_APP_API_URL +
+              estetikPlastikCerState[0]?.header_image?.url */ images
+                .estetikVePlastikCerrahi.header
             })`,
         }}
       >
@@ -60,7 +62,8 @@ function EstetikPlastikCerrahi() {
                             <br />
                             <img
                               src={
-                                process.env.REACT_APP_API_URL + item?.image?.url
+                                /*  process.env.REACT_APP_API_URL + item?.image?.url */ images
+                                  .estetikVePlastikCerrahi.images[index]
                               }
                               alt={item.title}
                             />

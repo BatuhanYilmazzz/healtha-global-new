@@ -3,6 +3,7 @@ import { ContactUsStyled } from "../../styles/pages";
 import { useTranslation } from "react-i18next";
 import Map from "../../layout/Map";
 import emailjs from "emailjs-com";
+import { images } from "../../constant/images";
 
 function ContactUs() {
   const { t } = useTranslation();
@@ -43,7 +44,7 @@ function ContactUs() {
     <ContactUsStyled>
       <div
         className='masthead'
-        style={{ backgroundImage: `url(/images/contact-us/contact.jpg)` }}
+        style={{ backgroundImage: `url(${images.contact.header})` }}
       >
         <h1>{t("CONTACT")}</h1>
       </div>

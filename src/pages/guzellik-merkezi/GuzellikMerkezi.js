@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { GuzellikMerkeziStyled } from "../../styles/pages";
 import { useTranslation } from "react-i18next";
 import DataContext from "../../context/dataContext";
+import { images } from "../../constant/images";
 
 function GuzellikMerkezi() {
   const { t } = useTranslation();
@@ -21,8 +22,9 @@ function GuzellikMerkezi() {
           backgroundImage:
             guzellikMerkeziState &&
             `url(${
-              process.env.REACT_APP_API_URL +
-              guzellikMerkeziState[0]?.header_image?.url
+              /*   process.env.REACT_APP_API_URL +
+              guzellikMerkeziState[0]?.header_image?.url */ images
+                .guzellikMerkezi.header
             })`,
         }}
       >
@@ -74,7 +76,10 @@ function GuzellikMerkezi() {
                 guzellikMerkeziState[0]?.beauty_photos.map((item, index) => (
                   <div className='col-sm-12 col-md-6 col-lg-3' key={index}>
                     <img
-                      src={process.env.REACT_APP_API_URL + item?.image?.url}
+                      src={
+                        /* process.env.REACT_APP_API_URL + item?.image?.url */ images
+                          .guzellikMerkezi.images[index]
+                      }
                       alt='güzellik merkezi'
                     />
                   </div>

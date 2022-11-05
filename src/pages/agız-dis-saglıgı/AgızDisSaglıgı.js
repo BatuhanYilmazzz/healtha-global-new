@@ -3,6 +3,7 @@ import { AgızDisSaglıgıStyled } from "../../styles/pages";
 import { useTranslation } from "react-i18next";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
+import { images } from "../../constant/images";
 
 function AgızDisSaglıgı() {
   const { t } = useTranslation();
@@ -21,8 +22,8 @@ function AgızDisSaglıgı() {
           backgroundImage:
             agızVeDisState &&
             `url(${
-              process.env.REACT_APP_API_URL +
-              agızVeDisState[0]?.header_image?.url
+              /*  process.env.REACT_APP_API_URL +
+              agızVeDisState[0]?.header_image?.url */ images.agızVeDis.header
             })`,
         }}
       >
@@ -42,8 +43,9 @@ function AgızDisSaglıgı() {
                   <img
                     className='w-100'
                     src={
-                      process.env.REACT_APP_API_URL +
-                      agızVeDisState[0]?.main_part?.img_1.url
+                      /*  process.env.REACT_APP_API_URL +
+                      agızVeDisState[0]?.main_part?.img_1.url */ images
+                        .agızVeDis.images[0]
                     }
                     alt=''
                   />
@@ -52,8 +54,9 @@ function AgızDisSaglıgı() {
                   <img
                     className='w-100'
                     src={
-                      process.env.REACT_APP_API_URL +
-                      agızVeDisState[0]?.main_part?.img_2.url
+                      /*  process.env.REACT_APP_API_URL +
+                      agızVeDisState[0]?.main_part?.img_2.url */ images
+                        .agızVeDis.images[1]
                     }
                     alt=''
                   />

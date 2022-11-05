@@ -3,6 +3,7 @@ import { ObeziteMetabolikCerrahiStyled } from "../../styles/pages";
 import { useTranslation } from "react-i18next";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
+import { images } from "../../constant/images";
 
 function ObeziteMetabolikCerrahi() {
   const { t } = useTranslation();
@@ -23,8 +24,9 @@ function ObeziteMetabolikCerrahi() {
           backgroundImage:
             obeziteMetabolikCerState &&
             `url(${
-              process.env.REACT_APP_API_URL +
-              obeziteMetabolikCerState[0]?.header_image?.url
+              /*  process.env.REACT_APP_API_URL +
+              obeziteMetabolikCerState[0]?.header_image?.url */ images
+                .obeziteVeMetabolikCerrahi.header
             })`,
         }}
       >
@@ -51,8 +53,9 @@ function ObeziteMetabolikCerrahi() {
                     <img
                       className='w-100'
                       src={
-                        process.env.REACT_APP_API_URL +
-                        obeziteMetabolikCerState[0]?.main_part?.img_1.url
+                        /*  process.env.REACT_APP_API_URL +
+                        obeziteMetabolikCerState[0]?.main_part?.img_1.url */ images
+                          .obeziteVeMetabolikCerrahi.images[0]
                       }
                       alt=''
                     />

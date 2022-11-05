@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { HeaderStyled } from "../../styles/pages";
 import { useTranslation } from "react-i18next";
 import DataContext from "../../context/dataContext";
+import { images } from "../../constant/images";
 
 function Header() {
   const { t } = useTranslation();
@@ -14,7 +15,8 @@ function Header() {
         backgroundImage:
           anasayfaState &&
           `url(${
-            process.env.REACT_APP_API_URL + anasayfaState[0]?.header_image?.url
+            /*  process.env.REACT_APP_API_URL + anasayfaState[0]?.header_image?.url */ images
+              .home.header
           })`,
       }}
     >

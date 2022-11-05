@@ -2,6 +2,7 @@ import React from "react";
 import { OurServicesStyled } from "../../styles/pages";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
+import { images } from "../../constant/images";
 function OurServices({ data }) {
   const { t } = useTranslation();
 
@@ -11,7 +12,7 @@ function OurServices({ data }) {
         <h1>{t("OUR_SERVICES")}</h1>
         <div className='row mb-4'>
           {data &&
-            data[0]?.services.map((item) => (
+            data[0]?.services.map((item, index) => (
               <div
                 className='col-sm-12 col-md-6 col-lg-3 position-relative mb-4'
                 key={item.id}
@@ -20,7 +21,8 @@ function OurServices({ data }) {
                   <div className='img-hover-zoom'>
                     <img
                       src={
-                        process.env.REACT_APP_API_URL + item?.service_image?.url
+                        /*  process.env.REACT_APP_API_URL + item?.service_image?.url */ images
+                          .home.images[index]
                       }
                       alt='saçekimi'
                     />
